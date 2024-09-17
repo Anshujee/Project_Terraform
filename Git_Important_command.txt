@@ -14,3 +14,34 @@ or push an existing repository from the command line
 git remote add origin https://github.com/Anshujee/Project_Terraform.git
 git branch -M main
 git push -u origin main
+
+------------------------------------------------------------------------------------------
+
+Project 1 --- Create EC2 Instance using Terraform Module 
+
+provider "aws" {
+  region = "ap-south-1"
+}
+
+module "ec2_instance" {
+
+  source = "./ec2_instance"
+  ami_value = "ami-0522ab6e1ddcc7055" # replace this
+  instance_type_value = "t2.micro"
+  subnet_id_value = "subnet-079be55a8cf563fe9" # replace this
+  key_name_value = "key_1_pair" # replace this
+}
+
+--------------------------------------------------------------------------------------
+Main file where we define variables 
+
+provider "aws" {
+  region = "ap-south-1"
+}
+  resource "aws_instance" "Test_Module" {
+    ami = var.ami_value
+    instance_type = var.instance_type_value
+    subnet_id = var.subnet_id_value
+    key_name = var.key_name_value
+}
+
