@@ -17,7 +17,7 @@ git push -u origin main
 
 ------------------------------------------------------------------------------------------
 
-Project 1 --- Create EC2 Instance using Terraform Module 
+Project 1 --- Create EC2 Instance using Terraform Module (main .tf ) outside folder
 
 provider "aws" {
   region = "ap-south-1"
@@ -33,7 +33,7 @@ module "ec2_instance" {
 }
 
 --------------------------------------------------------------------------------------
-Main file where we define variables 
+Main file where we define variables  ( main.tf ) inside folder 
 
 provider "aws" {
   region = "ap-south-1"
@@ -45,3 +45,28 @@ provider "aws" {
     key_name = var.key_name_value
 }
 
+------------------------------------------------------------------------------------
+Variable File here we define the variable 
+
+
+variable "ami_value" {
+  description = "Value for the ami"
+}
+
+variable "instance_type_value" {
+    description = "Value for the instance_type" 
+}
+
+variable "subnet_id_value" {
+    description = "Value for the subnet_id" 
+}
+
+variable "key_name_value" {
+    description = "value for the key_pair" 
+}
+
+-----------------------------------------------------------------------------
+
+output "public-ip-address" {
+    value = aws_instance.Test_Module.public_ip
+}
