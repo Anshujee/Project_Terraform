@@ -10,6 +10,6 @@ resource "aws_instance" "Test_module" {
     key_name = var.key_name_value
 
     tags = {
-        Name = "Anshu_EC2_with_modules"
+        Name = "Anshu_EC2_with_modules_1"
     }
 }
