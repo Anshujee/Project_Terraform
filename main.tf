@@ -8,4 +8,8 @@ resource "aws_instance" "Test_module" {
     instance_type = var.instance_type
     subnet_id = var.subnet_id_value  
     key_name = var.key_name_value
+
+    tags = {
+        Name = "Anshu_EC2_with_modules"
+    }
 }
