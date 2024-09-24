@@ -11,7 +11,7 @@ resource "aws_instance" "anshu" {
     key_name = "key_1_pair"
  
 tags = {
-        Name = "Anshu_TF_State_file"
+        Name = "Anshu_EC2_with_S3_for_storing_State_file"
     }
 }
 
